@@ -26,10 +26,15 @@ app.listen(3000);
 */
 
 
+
 var things=require("./things.js");
 
 app.use("/things",things);
 
+
+app.get('/things/:id', function(req, res){
+   res.send('id: ' + req.params.id);
+});
 app.listen(3000);
 
 
