@@ -27,15 +27,25 @@ app.listen(3000);
 
 
 
-var things=require("./things.js");
 
-app.use("/things",things);
-
-
-app.get('/things/:id', function(req, res){
-   res.send('id: ' + req.params.id);
-});
-app.listen(3000);
+app.get( "/", (req, res, next) => {
+      console.log("hello");
+      next();
+   },
+   (req, res ,next) => {
+      console.log("second");
+      next();
+   },
+   function(req,res,next)
+   {
+      res.send(`<div>
+      <h2>Welcome to GeeksforGeeks</h2>
+      <h5>Tutorial on Middleware</h5>
+   </div>`);
+   }
+   );
+   app.listen(3000);
+   
 
 
 /*
