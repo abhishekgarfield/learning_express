@@ -25,8 +25,17 @@ app.post("/home",function(req,res)
 app.listen(3000);
 */
 
+/*
 var things=require("./things.js");
 
-app.use(things);
+app.use("/things",things);
 
 app.listen(3000);
+*/
+
+app.get("/:id",function(req,res)
+{
+   res.send("this is get method on route" + req.params.id);
+});
+app.listen(3000);
+
