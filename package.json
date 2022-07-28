@@ -19,12 +19,7 @@
   "homepage": "https://github.com/abhishekgarfield/learning_express#readme",
   "dependencies": {
     "express": "^4.18.1",
-    "nodemon": "^2.0.19"
+    "nodemon": "^2.0.19",
+    "pug": "^3.0.2"
   }
 }
-
-
-
-
-
-
