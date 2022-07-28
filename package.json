@@ -1,0 +1,24 @@
+{
+  "name": "learning_express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "firstapp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon firstapp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhishekgarfield/learning_express.git"
+  },
+  "author": "garfield",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhishekgarfield/learning_express/issues"
+  },
+  "homepage": "https://github.com/abhishekgarfield/learning_express#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
