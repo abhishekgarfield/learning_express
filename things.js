@@ -1,14 +1,14 @@
 var express=require("express");
 var router=express.Router();
 
-router.get("/",function(req,res)
+router.get("/:id/:name",function(req,res)
 {
-    res.send("hwllo this is a get method");
+    res.send("hello this is a get method " + req.params.id +" "+ req.params.name);
 });
 
-router.post("/",function(req,res)
+router.post("/:id/:name",function(req,res)
 {
-    res.send("hwllo this is a post method");
+    res.send("hello this is a post method "+ req.params.id +" "+ req.params.name);
 });
 
 
