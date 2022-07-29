@@ -45,6 +45,8 @@ app.get("/:id",function(req,res)
 });
 app.listen(3000);
 */
+
+/*
 var fs=require("fs");
 
 app.get("/",function(req,res)
@@ -55,4 +57,24 @@ app.get("/",function(req,res)
    return res.end();
    });
 });
+app.listen(3000);
+*/
+
+app.get("/:name",function(req,res,next)
+{
+   console.log("performing first chk");
+   next();
+},
+
+   function(req,res,next)
+   {
+      console.log("performing second chk");
+   next();
+   },
+   function(req,res,next)
+   {
+      res.send("hi all done and published");
+
+   }
+);
 app.listen(3000);
