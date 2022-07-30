@@ -97,7 +97,7 @@ app.get("/",function(req,res)
 }).listen(3000);
 */
 
-
+/*
 app.set("view engine" ,"pug");
 app.set("views","./views");
 
@@ -108,3 +108,18 @@ app.get("/",function(req,res)
   
 });
 app.listen(3000);
+*/
+
+
+app.set("view engine","pug");
+app.set("views","./views");
+
+app.get("/",function(req,res)
+{
+   res.render("login",{
+      user: {
+         name:"abhishek",
+         age:23
+      }
+   })
+}).listen(3000);

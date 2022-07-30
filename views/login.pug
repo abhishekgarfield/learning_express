@@ -3,6 +3,8 @@
 <head>
 <title>login</title>
 <body>
+
+include ./header.pug
 if(user)
     <h1> hi #{user.name} , ur age is #{user.age}</h1>
 else 
@@ -10,5 +12,7 @@ else
     <input type="text" name="name">
     <label forhtml="pass"> 
     <input type="password" name ="pass">
+
+include footer.pug
 </body>
 </html>
