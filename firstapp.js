@@ -83,7 +83,7 @@ app.listen(3000);
 
 */
 
-
+/*
 app.set("view engine","pug");
 app.set("views","./views");
 
@@ -95,3 +95,16 @@ app.get("/",function(req,res)
       school:"sainik school sujanpur tira"
    });
 }).listen(3000);
+*/
+
+
+app.set("view engine" ,"pug");
+app.set("views","./views");
+
+app.get("/",function(req,res)
+{
+   res.render("login")
+
+  
+});
+app.listen(3000);
