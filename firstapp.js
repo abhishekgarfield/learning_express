@@ -60,6 +60,8 @@ app.get("/",function(req,res)
 app.listen(3000);
 */
 
+/*
+
 app.get("/:name",function(req,res,next)
 {
    console.log("performing first chk");
@@ -78,3 +80,18 @@ app.get("/:name",function(req,res,next)
    }
 );
 app.listen(3000);
+
+*/
+
+
+app.set("view engine","pug");
+app.set("views","./views");
+
+app.get("/",function(req,res)
+{
+   res.render("gh",{
+      name:"abhishek",
+      age:26,
+      school:"sainik school sujanpur tira"
+   });
+}).listen(3000);
