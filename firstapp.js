@@ -113,13 +113,10 @@ app.listen(3000);
 
 app.set("view engine","pug");
 app.set("views","./views");
+app.use(express.static('./images'))
 
 app.get("/",function(req,res)
 {
-   res.render("login",{
-      user: {
-         name:"abhishek",
-         age:23
-      }
-   })
+   res.render("login"
+   )
 }).listen(3000);
