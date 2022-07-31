@@ -125,4 +125,3 @@ app.get("/",function(req,res)
 var express=require("express");
 var app=express();
 var upload= require("multer");
-npm i

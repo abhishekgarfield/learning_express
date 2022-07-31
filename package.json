@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/abhishekgarfield/learning_express#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
     "express": "^4.18.1",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^2.0.19",
