@@ -122,6 +122,8 @@ app.get("/",function(req,res)
 }).listen(3000);
 */
 
+/*
+
 var express=require("express");
 var app=express();
 var multer= require("multer");
@@ -145,7 +147,51 @@ app.post("/",(req,res)=>{
    res.send("request recienved");
 });
 app.listen(3000);
+*/
 
+
+
+var express=require("express");
+var bodyParser=require("body-parser");
+var multer=require("multer");
+var upload=multer();
+var app=express();
+
+app.set("view engine","pug");
+app.set("views","./views");
+
+app.get("/",function(req,res)
+{
+   res.render("form");
+});
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
+app.use(upload.array());
+app.use(express.static("upload"));
+
+app.post("/",function(req,res)
+{
+   console.log(req.body);
+   res.send("request submitted");
+});
+app.listen(3000);
+
+
+var formidable=require("formidable");
+var http=require("http");
+http.createServer(function(req,res)
+{
+   if(req.url=="/upload")
+   {
+      var form=formidable.IncomingForm();
+      form.parse(req,function(err,fields,files)
+      {
+         res.end("form submitted");
+      });
+   }
+});
 
 
 

@@ -1,0 +1,17 @@
+.main{
+    text-align: center;
+    border: 2px;
+    border-style: solid;
+    border-color:gray;
+    
+    overflow: hidden;
+}
+.kid{
+    text-align: center;
+    border: 2px;
+    border-style: dashed;
+    border-color: green;
+    width:25%;
+    float:left;
+    margin:2px
+}
