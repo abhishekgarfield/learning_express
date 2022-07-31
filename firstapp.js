@@ -8,8 +8,7 @@ app.get('/home', function(req, res){
 app.listen(3000);
 */
 
-var express=require("express");
-var app=express();
+
 /*
 app.get("/home",function(req,res)
 {
@@ -110,6 +109,7 @@ app.get("/",function(req,res)
 app.listen(3000);
 */
 
+/*
 
 app.set("view engine","pug");
 app.set("views","./views");
@@ -120,3 +120,9 @@ app.get("/",function(req,res)
    res.render("login"
    )
 }).listen(3000);
+*/
+
+var express=require("express");
+var app=express();
+var upload= require("multer");
+npm i
