@@ -386,9 +386,16 @@ app.post("/",(req,res) =>
          {
             res.send("database error");
          }
+         else if(response.matchedCount==0)
+         {
+            res.send("no matches found");
+         }
          else
          {
-             res.send("updated");
+             cars.find({"name":info.newName},function(err,response)
+             {
+                  res.json(response);
+             });
          }
        });
    }
