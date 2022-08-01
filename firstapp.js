@@ -371,7 +371,7 @@ app.get("/" , (req,res)=>{
       res.render("update");
 });
 
-app.post("/",(req,res) =>
+app.all("/",(req,res) =>
 {
    var info=req.body;
    if(!info.currentName || !info.newName)
