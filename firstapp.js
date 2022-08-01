@@ -82,19 +82,21 @@ app.listen(3000);
 
 */
 
-/*
+var express=require("express");
+var app=express();
 app.set("view engine","pug");
 app.set("views","./views");
 
 app.get("/",function(req,res)
 {
-   res.render("gh",{
+   var obj={
       name:"abhishek",
       age:26,
       school:"sainik school sujanpur tira"
-   });
+   };
+   res.render("gh",obj);
 }).listen(3000);
-*/
+
 
 /*
 app.set("view engine" ,"pug");
@@ -148,7 +150,7 @@ app.post("/",(req,res)=>{
 });
 app.listen(3000);
 */
-
+/*
 
 
 var express=require("express");
@@ -192,7 +194,7 @@ http.createServer(function(req,res)
       });
    }
 });
-
+*/
 
 
 
