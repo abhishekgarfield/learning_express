@@ -324,7 +324,7 @@ app.post("/",(req,res)=>
    }
 });
 */
-
+/*
 var express=require("express");
 var app=express();
 var multer=require("multer");
@@ -345,7 +345,54 @@ app.get("/",(req,res)=>{
       res.send(response);
    }))
 });
+*/
 
+var express=require("express");
+var app=express();
+var mongoose=require("mongoose");
+var bodyParser=require("body-parser");
+var multer=require("multer");
+var upload=multer();
+mongoose.connect("mongodb://localhost:27017/carData");
+app.set("view engine","pug");
+app.set("views","./views");
+app.use(bodyParser.json());
+app.use(upload.array());
+
+var carSchema={
+   name:String,
+   used:Number,
+   company:String
+};
+
+var cars=mongoose.model("cars",carSchema);
+
+app.get("/" , (req,res)=>{
+      res.render("update");
+});
+
+app.post("/",(req,res) =>
+{
+   var info=req.body;
+   if(!info.currentName || !info.newName)
+   {
+      res.send("error: no data found");
+   }
+   else
+   {
+       cars.updateOne({"name":info.currentName},{$set: {"name":info.newName}},function(err,response)
+       {
+         if(err)
+         {
+            res.send("database error");
+         }
+         else
+         {
+             res.send("updated");
+         }
+       });
+   }
+});
 app.listen(3000);
 
 
