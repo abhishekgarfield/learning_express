@@ -250,7 +250,7 @@ app.post('/person', function(req, res){
 });
 app.listen(3000);
 */
-
+/*
 var express=require("express");
 var app=express();
 var mongoose=require("mongoose");
@@ -322,6 +322,28 @@ app.post("/",(req,res)=>
       })
       
    }
+});
+*/
+
+var express=require("express");
+var app=express();
+var multer=require("multer");
+var upload=multer();
+var bodyParser=require("body-parser");
+var mongoose=require("mongoose");
+mongoose.connect("mongodb://localhost/carData");
+var carSchema={
+   name:String,
+   used:Number,
+   company:String
+};
+var cars=mongoose.model("cars",carSchema);
+
+app.get("/",(req,res)=>{
+   (cars.find({$or: [{"name":"alto"},{"name":"mustang"}]},{"name":1,_id:0},function(err,response)
+   {
+      res.send(response);
+   }))
 });
 
 app.listen(3000);
