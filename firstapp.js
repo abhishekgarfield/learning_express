@@ -251,6 +251,81 @@ app.post('/person', function(req, res){
 app.listen(3000);
 */
 
+var express=require("express");
+var app=express();
+var mongoose=require("mongoose");
+mongoose.connect("mongodb://localhost:27017/carData");
+var bodyParser=require("body-parser");
+var multer=require("multer");
+var upload=multer();
+
+app.set("view engine","pug");
+app.set("views","./views");
+
+app.use(upload.array());
+app.use(express.static("upload"));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
+var carSchema=mongoose.Schema({
+   name:String,
+   used:Number,
+   company:String
+});
+var car=mongoose.model("car",carSchema);
+
+app.get("/",(req,res)=>{
+   res.render("person");
+});
+
+app.post("/",(req,res)=>
+{
+   var carInfo=req.body;
+   console.log(req.body);
+
+   if(!carInfo.name || !carInfo.used || !carInfo.company)
+   {
+      console.log(carInfo.name);
+      console.log(carInfo.used);
+      console.log(carInfo.company);
+      
+      res.render("show_message",{
+         type:"error",
+         message:"invalid values entered"
+      });
+   }
+   else
+   {
+      var newCar=new car({
+         name:carInfo.name,
+         used:carInfo.used,
+         company:carInfo.company
+      });
+
+      newCar.save((err,car)=>
+      {
+         if(err)
+         {
+            res.render("show_message",{
+               type:"error",
+               message:"database error"
+            });
+         }
+         else
+         {
+            res.render("show_message",{
+               type:"success",
+               info:newCar
+            });
+         }
+      })
+      
+   }
+});
+
+app.listen(3000);
+
 
 
 
