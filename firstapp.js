@@ -346,6 +346,7 @@ app.get("/",(req,res)=>{
    }))
 });
 */
+/*
 
 var express=require("express");
 var app=express();
@@ -401,8 +402,24 @@ app.all("/",(req,res) =>
    }
 });
 app.listen(3000);
+*/
 
 
+var express=require("express");
+var app=express();
+var cookieParser=require("cookie-parser");
+app.use(cookieParser());
 
+app.get("/",(req,res)=>
+{
+   
+   res.cookie("name","express", {maxAge:36000}).send("cookie set");
+   
+   console.log(req.cookies);
+});
+app.get("/clear",(req,res)=>{
+   res.clearCookie("express").send("cookie cleared");
+})
+app.listen(3000);
 
 
