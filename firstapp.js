@@ -445,11 +445,62 @@ app.get("/",(req,res)=>{
 });
 app.listen(3000);
 */
-
+/*
 var express=require("express");
 var app=express();
+var multer=require("multer");
+var upload=multer();
 var session=require("express-session");
+var bodyParser=require("body-parser");
+
+//setting view engine
+app.set("view engine","pug");
+app.set("views","./views");
+
+//using modules
 
 app.use(session({secret:"shh , it is a secret"}));
+app.use(bodyParser.json());
+app.use(upload.array());
+
+//connectng database
+
+var users=[];
+
+app.get("/signup",(req,res)=>{
+   res.render("signup");
+});
+
+app.post("/signup",(req,res)=>
+{
+    var userInfo=req.body;
+    if(!userInfo.id || !userInfo.password)
+    {
+      res.render("signup",{
+         message:"invalid details"
+      });
+    }
+    else
+    {
+       users.filter((user=>{
+         if(user.id==userInfo.id)
+         {
+            res.render("signup",{
+               message:"user already exists"
+            })
+         }
+       }));
+   }
+      
+    
+});
+
+app.get("/protected_page",(req,res)=>
+{
+   res.render("protected_page");
+})
+
+app.listen(3000);
+*/
 
 
