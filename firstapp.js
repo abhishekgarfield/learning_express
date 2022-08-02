@@ -404,7 +404,7 @@ app.all("/",(req,res) =>
 app.listen(3000);
 */
 
-
+/*
 var express=require("express");
 var app=express();
 var cookieParser=require("cookie-parser");
@@ -422,4 +422,26 @@ app.get("/clear",(req,res)=>{
 })
 app.listen(3000);
 
+*/
+
+var express=require("express");
+var app=express();
+var cookieParser=require("cookie-parser");
+var session=require("express-session");
+
+app.use(cookieParser());
+app.use(session({secret:"shh,  its a secret"}));
+
+app.get("/",(req,res)=>{
+   if(req.session.page_views)
+   {
+      req.session.page_views++;
+      res.send("you are visiting this page for : "+ req.session.page_views);
+   }
+   else{
+      req.session.page_views=1;
+      res.send("you are visiting this page for the first time");
+   }
+});
+app.listen(3000);
 
