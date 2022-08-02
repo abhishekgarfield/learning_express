@@ -423,7 +423,7 @@ app.get("/clear",(req,res)=>{
 app.listen(3000);
 
 */
-
+/*
 var express=require("express");
 var app=express();
 var cookieParser=require("cookie-parser");
@@ -444,4 +444,12 @@ app.get("/",(req,res)=>{
    }
 });
 app.listen(3000);
+*/
+
+var express=require("express");
+var app=express();
+var session=require("express-session");
+
+app.use(session({secret:"shh , it is a secret"}));
+
 
