@@ -250,7 +250,7 @@ app.post('/person', function(req, res){
 });
 app.listen(3000);
 */
-/*
+
 var express=require("express");
 var app=express();
 var mongoose=require("mongoose");
@@ -323,7 +323,7 @@ app.post("/",(req,res)=>
       
    }
 });
-*/
+app.listen(3000);
 /*
 var express=require("express");
 var app=express();
